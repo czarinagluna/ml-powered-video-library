@@ -9,7 +9,7 @@ try:
     from PIL import Image
 except ImportError:
     import Image
-from wand.image import Image as Img  
+#from wand.image import Image as Img  
 import numpy as np
 import cv2
 import re
