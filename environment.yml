@@ -117,6 +117,7 @@ dependencies:
     - spacy==3.2.3
     - spacy-legacy==3.0.9
     - spacy-loggers==1.0.1
+    - spacy-streamlit==1.0.2
     - speechrecognition==3.8.1
     - srsly==2.4.2
     - stack-data==0.2.0
