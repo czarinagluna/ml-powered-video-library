@@ -9,7 +9,7 @@ try:
     from PIL import Image
 except ImportError:
     import Image
-from wand.image import Image as Img  
+# from wand.image import Image as Img  
 import numpy as np
 import cv2
 import re
@@ -112,87 +112,87 @@ from pydub.silence import split_on_silence
 
 image_frames = 'image_frames'
 
-def files(video_file):
-    try:
-        os.remove(image_frames)
-    except OSError:
-        pass
+# def files(video_file):
+#     try:
+#         os.remove(image_frames)
+#     except OSError:
+#         pass
   
-    if not os.path.exists(image_frames):
-        os.makedirs(image_frames)
+#     if not os.path.exists(image_frames):
+#         os.makedirs(image_frames)
 
-    src_vid = cv2.VideoCapture(video_file)
-    return(src_vid)
+#     src_vid = cv2.VideoCapture(video_file)
+#     return(src_vid)
 
-def process(src_vid):
-    index = 0
-    while src_vid.isOpened():
-        ret, frame = src_vid.read()
-        if not ret:
-            break
+# def process(src_vid):
+#     index = 0
+#     while src_vid.isOpened():
+#         ret, frame = src_vid.read()
+#         if not ret:
+#             break
 
-        name = './image_frames/frame' + str(index) + '.png'
+#         name = './image_frames/frame' + str(index) + '.png'
 
-        if index % 20 == 0:
-            print('Extracting frames...' + name)
-            cv2.imwrite(name, frame)
-        index = index + 1
-        if cv2.waitKey(10) & 0xFF == ord('q'):
-            break
+#         if index % 20 == 0:
+#             print('Extracting frames...' + name)
+#             cv2.imwrite(name, frame)
+#         index = index + 1
+#         if cv2.waitKey(10) & 0xFF == ord('q'):
+#             break
   
-    src_vid.release()
-    cv2.destroyAllWindows()
+#     src_vid.release()
+#     cv2.destroyAllWindows()
 
-def sorted_alphanumeric(data):
-    convert = lambda text: int(text) if text.isdigit() else text.lower()
-    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)] 
-    return sorted(data, key=alphanum_key)
+# def sorted_alphanumeric(data):
+#     convert = lambda text: int(text) if text.isdigit() else text.lower()
+#     alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)] 
+#     return sorted(data, key=alphanum_key)
 
-def get_text():
-    full_text = []
+# def get_text():
+#     full_text = []
 
-    for i in sorted_alphanumeric(os.listdir(image_frames)):
-        print(str(i))
-        my_example = Image.open(image_frames + '/' + i)
-        text = pytesseract.image_to_string(my_example, lang='eng')
-        full_text.append(text)
+#     for i in sorted_alphanumeric(os.listdir(image_frames)):
+#         print(str(i))
+#         my_example = Image.open(image_frames + '/' + i)
+#         text = pytesseract.image_to_string(my_example, lang='eng')
+#         full_text.append(text)
 
-    single_text = ' '.join([i for i in full_text]).replace('\n', '').replace('\x0c', '').replace('TikTok', '')
+#     single_text = ' '.join([i for i in full_text]).replace('\n', '').replace('\x0c', '').replace('TikTok', '')
 
-    return single_text
+#     return single_text
 
-def most_frequent(xlist):
-    most_frequent = max(set(xlist), key = xlist.count)
-    if most_frequent == '':
-      return np.nan
-    else:
-      return most_frequent
+# def most_frequent(xlist):
+#     most_frequent = max(set(xlist), key = xlist.count)
+#     if most_frequent == '':
+#       return np.nan
+#     else:
+#       return most_frequent
 
-def extract_username(screentext):
-  screentext = screentext.lower()
-  screentext = ''.join([i for i in screentext if not i.isdigit()])
-  screentext = ' '.join(screentext.split())
+# def extract_username(screentext):
+#   screentext = screentext.lower()
+#   screentext = ''.join([i for i in screentext if not i.isdigit()])
+#   screentext = ' '.join(screentext.split())
 
-  textlist = [word for word in screentext.lower().split()]
+#   textlist = [word for word in screentext.lower().split()]
 
-  usernamelist = []
+#   usernamelist = []
 
-  for text in textlist:
-    if re.search(r'[@]', text):
-      usernamelist.extend([text.rsplit('@')[-1]])
+#   for text in textlist:
+#     if re.search(r'[@]', text):
+#       usernamelist.extend([text.rsplit('@')[-1]])
   
-  if usernamelist == []:
-    return np.nan
+#   if usernamelist == []:
+#     return np.nan
 
-  else:
-    usernamelist = ' '.join([name for name in usernamelist])
-    usernamelist = [name for name in usernamelist.strip().split()]
+#   else:
+#     usernamelist = ' '.join([name for name in usernamelist])
+#     usernamelist = [name for name in usernamelist.strip().split()]
 
-    try:
-      return most_frequent(usernamelist)
+#     try:
+#       return most_frequent(usernamelist)
 
-    except:
-        return ' '.join(usernamelist)
+#     except:
+#         return ' '.join(usernamelist)
 
 wordsegment.load()
 nltk.download('words')
@@ -206,21 +206,21 @@ def process_text(text):
   text = ' '.join([i for i in text if i in words])
   return text
 
-def extract_text(video_file):
-    tfile = tempfile.NamedTemporaryFile(delete=False)
-    tfile.write(video_file.read())
+# def extract_text(video_file):
+#     tfile = tempfile.NamedTemporaryFile(delete=False)
+#     tfile.write(video_file.read())
 
-    vid = files(tfile.name)
-    print('Folder created.')
+#     vid = files(tfile.name)
+#     print('Folder created.')
 
-    process(vid)
-    onscreen_text = get_text()
-    user_name = extract_username(onscreen_text)
-    final_text = process_text(onscreen_text)
+#     process(vid)
+#     onscreen_text = get_text()
+#     user_name = extract_username(onscreen_text)
+#     final_text = process_text(onscreen_text)
 
-    shutil.rmtree('./image_frames/')
-    print('Folder removed.')
-    return user_name, final_text
+#     shutil.rmtree('./image_frames/')
+#     print('Folder removed.')
+#     return user_name, final_text
     
 
 def transcribe_audio(video_file):
@@ -284,13 +284,15 @@ def show_explore_page():
             st.write(video_to_speech)
 
         st.header('Video to Text')
+        st.write('Working on this for next update')
         
-        if st.button('Extract Visual Text'):
-            username, video_to_text = extract_text(video_upload)
-            st.write(f'Username: @{username}')
-            st.write(video_to_text)
+        # if st.button('Extract Visual Text'):
+        #     username, video_to_text = extract_text(video_upload)
+        #     st.write(f'Username: @{username}')
+        #     st.write(video_to_text)
 
-        # st.header('Video to Object')
+        st.header('Video to Object')
+        st.write('Working on this for next update')
         
         # if st.button('Extract Object'):
         #     video_to_object = extract_text(video_upload)
