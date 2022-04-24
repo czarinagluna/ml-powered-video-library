@@ -1,5 +1,5 @@
 import streamlit as st
-from steamlit_search import show_search_page
+from streamlit_search import show_search_page
 from streamlit_explore import show_explore_page
 
 
