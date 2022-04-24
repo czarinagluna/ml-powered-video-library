@@ -42,13 +42,30 @@ An example frame to illustrate:
 
 ![](data/images/YOLO.png)
 
-***
-
 Using the above packages and models, the features are extracted as text and I applied Natural Language Processing (NLP) to process the text and to create a corpus of all the words to search through. Finally I built the search engine using `BM25` and deployed the full app via Streamlit.
 
 ## Search Results
 
 Demo here.
+
+
+## Local Setup
+
+To run the app locally, clone the repository and install the requirements with pip.
+
+```
+git clone https://github.com/czarinagluna/ml-powered-video-library/
+cd ml-powered-video-library
+pip install -r requirements.txt
+```
+
+And lastly:
+
+```
+streamlit run streamlit-app.py
+```
+
+***
 
 SOURCE CODE: [Main Notebook](https://github.com/czarinagluna/ml-powered-video-library/blob/main/main.ipynb)
 
