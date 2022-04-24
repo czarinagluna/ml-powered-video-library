@@ -38,7 +38,7 @@ To process the videos, the state-of-the-art object detection system YOLO is used
 - Class probabilities are mapped, with the bounding boxes weighted by the predictions.
 - The output of objects detected are displayed if the threshold set is met.
 
-An example from a video:
+An example frame to illustrate:
 
 ![](data/images/YOLO.png)
 
