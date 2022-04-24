@@ -1,6 +1,6 @@
 import streamlit as st
-from steamlit-search import show_search_page
-from streamlit-explore import show_explore_page
+from steamlit_search import show_search_page
+from streamlit_explore import show_explore_page
 
 
 ###### Sidebar ######
