@@ -2,7 +2,7 @@
 
 Video sharing applications today lack the functionality for users to search videos by their content. As a solution I developed a searchable video library that processes videos and returns exact matches to queries using machine learning and artificial intelligence including speech recognition, optical character recognition, and object detection. 
 
-*[Link to Web Application](https://streamlit.io/)*
+*[Link to Web Application](https://share.streamlit.io/czarinagluna/ml-powered-video-library/main)*
 
 Photo here.
 
