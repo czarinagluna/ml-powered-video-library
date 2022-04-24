@@ -4,7 +4,7 @@ Video sharing applications today lack the functionality for users to search vide
 
 *[Link to Web Application](https://share.streamlit.io/czarinagluna/ml-powered-video-library/main)*
 
-Photo here.
+![](data/images/app.png)
 
 ## Business Problem
 
