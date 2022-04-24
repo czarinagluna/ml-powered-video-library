@@ -30,7 +30,7 @@ A video is a complex data type that can be broken down in a lot of different way
 2. Optical character recognition using `opencv-python`, `PIL`, and `pytesseract`
 3. Object detection using `opencv-python` and `YOLOv3` algorithm
 
-**Object Detection**
+**YOLO Object Detection**
 
 To process the videos, the state-of-the-art object detection system YOLO is used. YOLO looks at the image once. Thus, the name *You Only Look Once*.
 - The input image is divided into a grid of *x* by *x* number of cells. 
@@ -40,7 +40,7 @@ To process the videos, the state-of-the-art object detection system YOLO is used
 
 An example from a video:
 
-![](data/images/yolo.png)
+![](data/images/YOLO.png)
 
 ***
 
