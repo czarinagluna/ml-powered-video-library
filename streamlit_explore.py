@@ -1,8 +1,10 @@
 import streamlit as st
 import tempfile
 
+import sys
+sys.path.append('/path/to/ffmpeg')
+
 import os
-import ffprobe
 import speech_recognition as sr 
 from moviepy.editor import AudioFileClip
 from pydub import AudioSegment
