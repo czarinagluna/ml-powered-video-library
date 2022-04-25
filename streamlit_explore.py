@@ -2,6 +2,7 @@ import streamlit as st
 import tempfile
 
 import os
+import ffprobe
 import speech_recognition as sr 
 from moviepy.editor import AudioFileClip
 from pydub import AudioSegment
