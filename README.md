@@ -46,8 +46,7 @@ Using the above packages and models, the features are extracted as text and I ap
 
 ## Search Results
 
-Demo here.
-
+Uploading demo.mov…
 
 ## Local Setup
 
